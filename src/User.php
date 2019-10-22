@@ -36,10 +36,10 @@ class User extends Model
         return $user;
     }
 
-    public function verifyPassword(string $password): bool
+    public function verifyPassword($password): bool
     {
-        if ((substr($this->hash, 0, 2) == "$6" || substr($this->hash, 0, 2) == "$5")) {
-            return self::Encrypt($password, $this->hash) == $this->hash;
+        if ((substr($this->password, 0, 2) == "$6" || substr($this->password, 0, 2) == "$5")) {
+            return self::Encrypt($password, $this->password) == $this->password;
         }
 
         return password_verify($password, $this->password);
