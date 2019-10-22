@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a6f3499f817cecc79d7e70170f53374d",
+    "content-hash": "6f9545313da9052cf6eab31e2c066ec4",
     "packages": [
         {
             "name": "mathsgod/data-structure",
@@ -1661,6 +1661,8 @@
     "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
-    "platform": [],
+    "platform": {
+        "php": ">=7.0"
+    },
     "platform-dev": []
 }
