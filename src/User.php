@@ -4,7 +4,6 @@ namespace App\Core;
 
 use Exception;
 
-
 class User extends Model
 {
     const STATUS = ["Active", "Inactive"];
@@ -37,13 +36,17 @@ class User extends Model
         return $user;
     }
 
-    public function verifyPassword(string $password): bool
+    public function verifyPassword($password): bool
     {
+        if ((substr($this->hash, 0, 2) == "$6" || substr($this->hash, 0, 2) == "$5")) {
+            return self::Encrypt($password, $this->hash) == $this->hash;
+        }
+
         return password_verify($password, $this->password);
     }
 
     private static $_is = [];
-    public function is($name)
+    public function is($name): bool
     {
         if ($name instanceof UserGroup) {
             $group = $name;
@@ -76,23 +79,48 @@ class User extends Model
         return $this->first_name . " " . $this->last_name;
     }
 
-    public function isAdmin()
+    public function isAdmin(): bool
     {
         return $this->is("Administrators");
     }
 
-    public function isPowerUser()
+    public function isPowerUser(): bool
     {
         return $this->is("Power Users");
     }
 
-    public function isUser()
+    public function isUser(): bool
     {
         return $this->is("Users");
     }
 
-    public function isGuest()
+    public function isGuest(): bool
     {
         return $this->is("Guests");
+    }
+
+    //for old version
+    private static function Encrypt($str, $salt = null)
+    {
+        if ($salt == null) { //hash
+            return password_hash($str, PASSWORD_DEFAULT);
+        }
+
+        $pass = "";
+        $md5 = md5($str);
+        eval(base64_decode("JHBhc3MgPSBtZDUoc3Vic3RyKHN1YnN0cigkbWQ1LC0xNiksLTgpLnN1YnN0cihzdWJzdHIoJG1kNSwtMTYpLDAsLTgpLnN1YnN0cihzdWJzdHIoJG1kNSwwLC0xNiksLTgpLnN1YnN0cihzdWJzdHIoJG1kNSwwLC0xNiksMCwtOCkpOw=="));
+        if (is_null($salt)) {
+            $rounds = rand(5000, 9999);
+            if (CRYPT_SHA512 == 1) {
+                $pass = crypt($pass, '$6$rounds=' . $rounds . '$' . md5(uniqid()) . '$');
+            } elseif (CRYPT_SHA256 == 1) {
+                $pass = crypt($pass, '$5$rounds=' . $rounds . '$' . md5(uniqid()) . '$');
+            } else {
+                $pass = crypt($pass);
+            }
+            return $pass;
+        } else {
+            return crypt($pass, $salt);
+        }
     }
 }

@@ -15,8 +15,7 @@
     ],
     "require": {
         "mathsgod/r-db": "^3.0",
-        "phpmailer/phpmailer": "^6.1",
-        "cache/array-adapter": "^1.0"
+        "phpmailer/phpmailer": "^6.1"
     },
     "require-dev": {
         "phpunit/phpunit": "^6.5"

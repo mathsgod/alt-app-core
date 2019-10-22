@@ -26,13 +26,7 @@ final class UserTest extends TestCase
         $this->assertNull($not_found);
     }
 
-    public function test_verifyPassword()
-    {
-        $admin = User::_("admin");
-        $this->assertFalse($admin->verifyPassword("abc"));
-    }
-
-    public function test_is()
+      public function test_is()
     {
         $admin = User::_("admin");
         $this->assertTrue($admin->is("Administrators"));
