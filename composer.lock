@@ -1,0 +1,85 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "8bbbcb4b090a301e283bba2d3a49cfd6",
+    "packages": [
+        {
+            "name": "mathsgod/data-structure",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://mathsgod:9df64f890850ef93d948662630d719c3c69da5da@github.com/mathsgod/data-structure.git",
+                "reference": "03b72b74e5198f9dfc035b1556efe6c4896a9918"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://raymond2.hostlink.com.hk/satis/web/dist/mathsgod/data-structure/mathsgod-data-structure-1.0.1-c1c45f.zip",
+                "reference": "03b72b74e5198f9dfc035b1556efe6c4896a9918",
+                "shasum": "60026eebc3f2a2f78bd4c527842ba9da65f83da3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "R\\": "src"
+                }
+            },
+            "authors": [
+                {
+                    "name": "Raymond Chong",
+                    "email": "mathsgod@yahoo.com"
+                }
+            ],
+            "description": "Data structure",
+            "time": "2019-06-20T04:53:46+00:00"
+        },
+        {
+            "name": "mathsgod/r-db",
+            "version": "3.0.17",
+            "source": {
+                "type": "git",
+                "url": "https://mathsgod:9df64f890850ef93d948662630d719c3c69da5da@github.com/mathsgod/r-db.git",
+                "reference": "846fcbc3532b2806f8eb43ee4286c0cb705302be"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://raymond2.hostlink.com.hk/satis/web/dist/mathsgod/r-db/mathsgod-r-db-3.0.17-ad46b2.zip",
+                "reference": "846fcbc3532b2806f8eb43ee4286c0cb705302be",
+                "shasum": "24ed5c09331a3b55545a1161ca786975db99f46a"
+            },
+            "require": {
+                "mathsgod/data-structure": "1.0.1",
+                "php": ">=7.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "R\\": "src"
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "authors": [
+                {
+                    "name": "Raymond Chong"
+                }
+            ],
+            "description": "raymond framework db",
+            "time": "2019-07-05T09:16:16+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}

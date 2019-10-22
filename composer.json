@@ -1,0 +1,19 @@
+{
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://raymond2.hostlink.com.hk/satis/web"
+        }
+    ],
+    "name": "mathsgod/alt-app",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Raymond Chong",
+            "email": "mathsgod@yahoo.com"
+        }
+    ],
+    "require": {
+        "mathsgod/r-db": "^3.0"
+    }
+}
