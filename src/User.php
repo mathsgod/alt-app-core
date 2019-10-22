@@ -25,7 +25,7 @@ class User extends Model
         }
 
         //check password
-        if (!password_verify($password, $user->password)) {
+        if (!$user->verifyPassword($password)) {
             throw new Exception("password error");
         }
 
