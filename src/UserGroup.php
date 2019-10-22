@@ -2,12 +2,8 @@
 
 namespace App\Core;
 
-use Cache\Adapter\PHPArray\ArrayCachePool;
-
 class UserGroup extends Model
 {
-
-    public static $Cache = null;
 
     public static function _($name)
     {
@@ -21,5 +17,3 @@ class UserGroup extends Model
         return $this->name;
     }
 }
-
-UserGroup::$Cache = new ArrayCachePool();
