@@ -5,7 +5,7 @@ namespace App\Core;
 class UserGroup extends Model
 {
 
-    public static function _($name)
+    public static function _(string $name)
     {
         $ug = UserGroup::Query()
             ->where("name=:name or code=:code", ["name" => $name, "code" => $name])

@@ -8,12 +8,19 @@ class User extends Model
 {
     const STATUS = ["Active", "Inactive"];
 
-    public static function _($username)
+    public static function _(string $username)
     {
         return self::Query(["username" => $username])->first();
     }
 
-    public static function Login($username, $password, $code = null)
+
+    public function setPassword(string $password)
+    {
+        $this->password = password_hash($password, PASSWORD_DEFAULT);
+        $this->save();
+    }
+
+    public static function Login(string $username, string $password, $code = null)
     {
         $user = self::Query([
             "username" => $username,
@@ -36,7 +43,7 @@ class User extends Model
         return $user;
     }
 
-    public function verifyPassword($password): bool
+    public function verifyPassword(string $password): bool
     {
         if ((substr($this->password, 0, 2) == "$6" || substr($this->password, 0, 2) == "$5")) {
             return self::Encrypt($password, $this->password) == $this->password;
@@ -100,7 +107,7 @@ class User extends Model
     }
 
     //for old version
-    private static function Encrypt($str, $salt = null)
+    private static function Encrypt(string $str, $salt = null)
     {
         if ($salt == null) { //hash
             return password_hash($str, PASSWORD_DEFAULT);

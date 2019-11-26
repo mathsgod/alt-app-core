@@ -4,7 +4,7 @@ namespace App\Core;
 
 class SystemValue extends Model
 {
-    public static function _($name, $lang = 'en')
+    public static function _(string $name, $lang = 'en')
     {
         return self::Query([
             "language" => $lang,
