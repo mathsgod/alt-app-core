@@ -7,9 +7,23 @@ use App\Core\UserGroup;
 
 final class UserTest extends TestCase
 {
+    public function test_setPassword()
+    {
+        $user = User::_("raymond");
+        $user->setPassword("111111");
+
+        $this->expectException(Exception::class);
+        $user = User::Login("raymond", "22222");
+
+        $user = User::Login("raymond", "111111");
+        $this->assertEquals("raymond", $user->username);
+    }
 
     public function test_login()
     {
+        $user = User::_("raymond");
+        $user->setPassword("111111");
+
         $user = User::Login("raymond", "111111");
         $this->assertEquals("raymond", $user->username);
 
@@ -26,7 +40,7 @@ final class UserTest extends TestCase
         $this->assertNull($not_found);
     }
 
-      public function test_is()
+    public function test_is()
     {
         $admin = User::_("admin");
         $this->assertTrue($admin->is("Administrators"));
