@@ -16,25 +16,4 @@ final class ModelTest extends TestCase
         $testing->save();
         $this->assertNotEmpty($testing->updated_time);
     }
-
-    public function test_bind()
-    {
-
-        $testing = new Testing();
-        $testing->bind([
-            "name" => "testing"
-        ]);
-
-        $this->assertEquals("testing", $testing->name);
-    }
-
-    public function test_bind2()
-    {
-
-        $testing = new Testing();
-        $testing->bind([
-            "name" => ["testing"]
-        ]);
-        $this->assertEquals("testing", $testing->name[0]);
-    }
 }

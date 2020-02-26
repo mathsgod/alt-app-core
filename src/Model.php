@@ -26,22 +26,4 @@ class Model extends \R\ORM\Model
 
         return parent::save();
     }
-
-    public function bind($rs)
-    {
-        foreach (get_object_vars($this) as $key => $val) {
-            if ($key[0] == "_") continue;
-
-            if (is_object($rs)) {
-                if (property_exists($rs, $key)) {
-                    $this->$key = $rs->$key;
-                }
-            } else {
-                if (array_key_exists($key, $rs)) {
-                    $this->$key = $rs[$key];
-                }
-            }
-        }
-        return $this;
-    }
 }
