@@ -27,4 +27,14 @@ final class ModelTest extends TestCase
 
         $this->assertEquals("testing", $testing->name);
     }
+
+    public function test_bind2()
+    {
+
+        $testing = new Testing();
+        $testing->bind([
+            "name" => ["testing"]
+        ]);
+        $this->assertEquals("testing", $testing->name[0]);
+    }
 }
