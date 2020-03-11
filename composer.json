@@ -6,6 +6,7 @@
         }
     ],
     "name": "mathsgod/alt-app-core",
+    "description": "alt app core library",
     "type": "library",
     "authors": [
         {
