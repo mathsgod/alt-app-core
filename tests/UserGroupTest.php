@@ -1,4 +1,4 @@
-<?
+<?php
 
 use App\Core\User;
 use PHPUnit\Framework\TestCase;
