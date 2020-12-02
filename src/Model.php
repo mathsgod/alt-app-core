@@ -10,6 +10,7 @@ class Model extends \R\ORM\Model
         return self::$_db;
     }
 
+    
     public function save()
     {
         $key = $this->_key();

@@ -40,6 +40,10 @@ class User extends Model
             throw new Exception("user expired");
         }
 
+        if ($user->UserList->count() == 0) {
+            throw new Exception("no any user group");
+        }
+
         return $user;
     }
 
